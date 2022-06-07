@@ -5,6 +5,7 @@ import Brazil from '@/views/Brazil.vue'
 import Hawaii from '@/views/Hawaii.vue'
 import Panama from '@/views/Panama.vue'
 import Jamaica from '@/views/Jamaica.vue'
+import DestinationShow from '@/components/DestinationShow.vue'
 
 const routes = [{
         path: '/',
@@ -30,6 +31,11 @@ const routes = [{
         path: '/jamaica',
         name: 'Jamaica',
         component: Jamaica
+    },
+    {
+        path: '/destination',
+        name: 'DestinationShow',
+        component: DestinationShow
     }
 ]
 const router = createRouter({
