@@ -1,15 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
-import About from '@/views/About.vue'
-<<<<<<< HEAD
-import Brazil from '@/views/Brazil.vue'
-import Hawaii from '@/views/Hawaii.vue'
-import Panama from '@/views/Panama.vue'
-import Jamaica from '@/views/Jamaica.vue'
 import DestinationShow from '@/components/DestinationShow.vue'
-=======
-
->>>>>>> lesson2
 
 const routes = [{
         path: '/',
@@ -37,23 +28,18 @@ const routes = [{
     {
         path: '/jamaica',
         name: 'Jamaica',
-<<<<<<< HEAD
-        component: Jamaica
-    },
-    {
-        path: '/destination',
-        name: 'DestinationShow',
-        component: DestinationShow
-=======
         component: () =>
             import ('@/views/Jamaica.vue')
->>>>>>> lesson2
+    },
+    {
+        path: '/destination/:id',
+        name: 'DestinationShow',
+        component: DestinationShow
     }
 ]
 const router = createRouter({
     history: createWebHistory(),
     routes,
-    linkActiveClass: 'vue-school-active-link'
 })
 
 export default router
