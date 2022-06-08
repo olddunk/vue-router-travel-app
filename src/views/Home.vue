@@ -6,7 +6,7 @@
         v-for="destination in destinations"
         :to="{
           name: 'destination.show',
-          params: { id: destination.id },
+          params: { id: destination.id, slug: destination.slug },
         }"
         :key="destination.id"
       >
