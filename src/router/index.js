@@ -21,7 +21,12 @@ const routes = [{
 
         }]
     },
-
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'notFound',
+        component: () =>
+            import ('@/components/NotFound.vue')
+    }
 ]
 const router = createRouter({
     history: createWebHistory(),
