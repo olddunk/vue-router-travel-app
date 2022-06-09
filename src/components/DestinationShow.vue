@@ -17,6 +17,7 @@
         <ExperienceCard :experience="experience"></ExperienceCard>
       </router-link>
     </div>
+    <router-view></router-view>
   </section>
 </template>
 <script>
