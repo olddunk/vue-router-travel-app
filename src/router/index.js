@@ -10,7 +10,15 @@ const routes = [{
         path: '/destination/:id/:slug',
         name: 'destination.show',
         component: () =>
-            import ('@/components/DestinationShow.vue')
+            import ('@/components/DestinationShow.vue'),
+        props: route => ({...route.params, id: parseInt(route.params.id) }),
+    },
+    {
+        path: '/destination/:id/:slug/:experienceSlug',
+        name: 'experience.show',
+        component: () =>
+            import ('@/components/ExperienceShow.vue'),
+        props: route => ({...route.params, id: parseInt(route.params.id) }),
     }
 ]
 const router = createRouter({
