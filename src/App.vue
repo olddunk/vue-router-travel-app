@@ -1,7 +1,11 @@
 <template>
   <TheNavigation />
   <div class="container">
-    <router-view :key="$route.path"></router-view>
+    <router-view v-slot="{ Component }">
+      <transition name="fade">
+        <component :is="Component" :key="$route.path"></component>
+      </transition>
+    </router-view>
   </div>
 </template>
 <script>
@@ -14,8 +18,13 @@ export default {
 </script>
 
 <style lang="css">
-#nav .vue-school-active-link {
-  color: red;
-  border-bottom: 1px solid red;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
