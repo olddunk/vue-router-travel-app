@@ -8,7 +8,7 @@
         <p>{{ destination.description }}</p>
       </div>
     </section>
-    <section v-if="experience" class="experiences">
+    <section class="experiences">
       <h2>Top exprience in {{ destination.name }}</h2>
       <div class="cards">
         <router-link
