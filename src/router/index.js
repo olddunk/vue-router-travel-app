@@ -18,7 +18,9 @@ const routes = [{
             if (!exists) {
                 return {
                     name: 'NotFound',
-                    params: { pathMatch: to.path.split('/').slice(1) }
+                    params: { pathMatch: to.path.split('/').slice(1) },
+                    query: to.query,
+                    hash: to.hash,
                 }
             }
         },
@@ -41,6 +43,10 @@ const routes = [{
 const router = createRouter({
     history: createWebHistory(),
     routes,
+    scrollBehavior(to, from, savedPosition) {
+        return savedPosition || new Promise((resolve) => {
+            setTimeout(() => resolve({ top: 0 }), 300)
+        })
+    }
 })
-
 export default router
