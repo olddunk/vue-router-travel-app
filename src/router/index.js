@@ -16,6 +16,13 @@ const routes = [{
             import ('@/views/Protected.vue'),
     },
     {
+        path: '/invoices',
+        name: 'invoices',
+        meta: { requiresAuth: true },
+        component: () =>
+            import ('@/views/Invoices.vue'),
+    },
+    {
         path: '/login',
         name: 'login',
         component: () =>
@@ -65,7 +72,7 @@ const router = createRouter({
 })
 router.beforeEach((to, from) => {
     if (to.meta.requiresAuth && !window.username) {
-        return { name: 'login' }
+        return { name: 'login', query: { redirect: to.fullPath } }
     }
 })
 export default router
