@@ -11,6 +11,7 @@
     >
       {{ destination.name }}
     </router-link>
+    <router-link to="/protected">Dashboard</router-link>
   </div>
 </template>
 <script>

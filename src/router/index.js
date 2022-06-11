@@ -1,11 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
+import Protected from '@/views/Protected.vue'
 import sourceData from "@/data.json";
 
 const routes = [{
         path: '/',
         name: 'home',
         component: Home
+    },
+    {
+        path: '/protected',
+        name: 'protected',
+        meta: { requiresAuth: true },
+        component: () =>
+            import ('@/views/Protected.vue'),
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () =>
+            import ('@/views/Login.vue')
     },
     {
         path: '/destination/:id/:slug',
@@ -47,6 +61,11 @@ const router = createRouter({
         return savedPosition || new Promise((resolve) => {
             setTimeout(() => resolve({ top: 0 }), 300)
         })
+    }
+})
+router.beforeEach((to, from) => {
+    if (to.meta.requiresAuth && !window.username) {
+        return { name: 'login' }
     }
 })
 export default router
